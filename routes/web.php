@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContatosController;
+use App\Models\Contatos;
 use Illuminate\Support\Facades\Route;
 
 //Rota de contato
@@ -9,6 +10,12 @@ Route::get('/contatos', [ContatosController::class, 'index']) ->name('contatos.i
 
 //Rota Delete
 Route::delete('/contatos/{contatoId}', [ContatosController::class, 'delete'] ) ->name('contatos.delete');
+
+//Rota de Create - método get
+Route::get('/contatos/create', [ContatosController::class, 'create'])->name('contatos.create.get');
+
+//Rota de Create - método post
+Route::post('/contatos/create', [ContatosController::class, 'create'])->name('contatos.create.post');
 
 Route::get('/', function () {
     return view('welcome');
